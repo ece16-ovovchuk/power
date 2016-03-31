@@ -1,2 +1,1 @@
-# power
-Power Calculation Module - Version 1.0
+# Power Calculation Module - Version 1.0
