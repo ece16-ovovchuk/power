@@ -1,0 +1,20 @@
+num = importdata('test_data_v1.csv',','); %import data w/ general import command
+X = (1:147); %numel(num.textdata(:,2)); 147 is the number of samples in 1 day
+relhum = num.data(:,4); %extract weather data
+roofWCtemp = num.data(:,3);
+rooftemp = num.data(:,2);
+rad = num.data(:,1);
+OneDayRoofWCTemp = roofWCtemp(1:147); %truncate weather data to just One Day
+OneDayRoofTemp = rooftemp(1:147);
+OneDayRelHum = relhum(1:147);
+OneDayRad = rad(1:147);
+normalWC = normc(OneDayRoofWCTemp); %normalize One Day weather data
+normalRT = normc(OneDayRoofTemp);
+normalhum = normc(OneDayRelHum);
+normalrad = normc(OneDayRad);
+Y(:,1) = normalrad;
+Y(:,2) = normalhum;
+Y(:,3) = normalRT;
+Y(:,4) = normalWC;
+B = X'\Y
+plot(X,Y);
