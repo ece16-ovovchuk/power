@@ -10,12 +10,14 @@ target = {};
 input = {};
 for i = 1:size(data_norm, 2)
     target{i} = data_norm{1,i}(1);
-    input{i} = data_norm{1,i}(1:end);
+    input{i} = data_norm{1,i}(2:end);
 end
-% Generate data plot
 
 % Network
+nnstart;
 
-% Generate performance result 
+% Compare
+% compare_the_fun;
 
-% Generate results
+% Generate prediction (from best performance?)
+predict_data;
